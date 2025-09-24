@@ -33,4 +33,13 @@ Simulates thousands of random portfolios via Monte Carlo methods, computes finan
 <img width="862" height="472" alt="portvis2" src="https://github.com/user-attachments/assets/946aeb93-d542-42a3-8704-1983d86b06f6" />
 
 
+## Requirements
+- Python
+- Streamlit - Interactive Dashboard
+- Plotly Express - Data Visulaisations
+- yfinance - Market Data API
+- Pandas  / NumPy - Data Handling
 
+  ## Use
+
+  streamlit run streamlit_app.py
