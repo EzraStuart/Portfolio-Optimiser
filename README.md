@@ -20,8 +20,6 @@ Simulates thousands of random portfolios via Monte Carlo methods, computes finan
 - Interactive Visualisations
   - Effecient Frontier Scatter Plot with colour coded Sharpe ratios
   - Asset Allocation shown as pie charts
-- Downloadable Results
-  - Export all simulated portfolios as CSV for further analysis
 
 ## Screenshots
 <img width="937" height="476" alt="Dashboard" src="https://github.com/user-attachments/assets/114f9c8c-83cc-4794-8ce4-9b538e36e816" />
@@ -42,4 +40,4 @@ Simulates thousands of random portfolios via Monte Carlo methods, computes finan
 
   ## Use
 
-  streamlit run streamlit_app.py
+  streamlit run Dashboard.py
