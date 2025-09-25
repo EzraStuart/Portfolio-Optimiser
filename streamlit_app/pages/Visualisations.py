@@ -24,7 +24,7 @@ else:
     df['Volatility'] *= 100
 
     # Tabs 
-    tab1, tab2, tab3 = st.tabs(["Efficient Frontier", "Optimal Portfolios", "Download Results"])
+    tab1, tab2 = st.tabs(["Efficient Frontier", "Optimal Portfolios"])
 
     #  Efficient Frontier Tab 
     with tab1:
@@ -68,7 +68,7 @@ else:
         )
         st.plotly_chart(fig, use_container_width=True)
 
-    # --- Optimal Portfolios Tab ---
+    #  Portfolios Tab 
     with tab2:
         for port, label in zip(optimal_ports, ['Max Sharpe', 'Min Vol', 'Min CVaR']):
             st.subheader(f"{label} Portfolio")
@@ -89,7 +89,7 @@ else:
                     ]
                 }))
 
-            # Allocation pie chart
+            # pie chart
             with col2:
                 st.markdown("**Asset Allocation**")
                 alloc_df = pd.DataFrame({
@@ -101,25 +101,4 @@ else:
                                 hole=0.3)
                 st.plotly_chart(fig_alloc, use_container_width=True)
 
-    # --- Download Tab ---
-    with tab3:
-        st.subheader("Download Simulation Results")
-        results_df = pd.DataFrame({
-            "Returns": results["returns"],
-            "Volatility": results["volatility"],
-            "Sharpe": results["sharpe"],
-            "VaR": results["var"],
-            "CVaR": results["cvar"]
-        })
 
-# Expand weights into columns named after assets
-        weights_df = pd.DataFrame(results["weights"], columns=optimiser.data.columns)
-
-# Concatenate
-        results_df = pd.concat([results_df, weights_df], axis=1)
-        st.download_button(
-            label="Download Results as CSV",
-            data=results_df.to_csv(index=False).encode('utf-8'),
-            file_name='portfolio_simulation_results.csv',
-            mime='text/csv'
-        )
